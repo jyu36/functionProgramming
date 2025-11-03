@@ -1,7 +1,7 @@
 (*
   FPSE Assignment 7
 
-  Name                  : 
+  Name                  : Jiaqi Yu
   List of Collaborators :
 
   In this file you use the `Stack_monad` module to refactor some stateful OCaml code.
