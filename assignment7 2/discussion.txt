@@ -1,0 +1,18 @@
+
+-------------------
+DISCUSSION EXERCISE
+-------------------
+
+One problem with monad encodings is the run-time complexity might be greater.
+
+For a string s of length n, calculate the asymptotic complexity of
+  (a) are_balanced_mutable s
+  (b) are_balanced_monadic s
+respectively. Show your work so you can get partial credit.
+
+Write your answer below.
+
+
+
+
+

@@ -1,0 +1,13 @@
+(rule
+  (target assignment7.zip)
+  (deps 
+    src/fpse_monad.ml
+    src/main.ml
+    src/stack_monad.ml
+    src/state_monad.ml
+    test/tests.ml
+    test/dune
+    discussion.txt
+  )
+  (action
+    (run zip -R assignment7.zip %{deps})))

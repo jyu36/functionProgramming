@@ -1,0 +1,23 @@
+
+(library
+ (name fpse_monad)
+ (modules fpse_monad)
+ (preprocess (pps ppx_let)))
+
+(library
+ (name state_monad)
+ (modules state_monad)
+ (libraries fpse_monad core)
+ (preprocess (pps ppx_let)))
+
+(library
+ (name stack_monad)
+ (modules stack_monad)
+ (libraries fpse_monad state_monad core)
+ (preprocess (pps ppx_let)))
+
+(library
+ (name main)
+ (modules main)
+ (libraries stack_monad core)
+ (preprocess (pps ppx_let)))
