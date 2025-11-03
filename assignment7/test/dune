@@ -1,0 +1,5 @@
+(test
+ (name tests)
+ (libraries core ounit2 main stack_monad state_monad fpse_monad)
+ (preprocess
+  (pps ppx_let)))

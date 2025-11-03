@@ -1,0 +1,20 @@
+(library
+  (name ngrams_tests)
+  (modules ngrams_tests)
+  (libraries
+    ounit2
+    core))
+
+(test
+  (name tests)
+  (modules tests)
+  (libraries
+    core
+    core_unix.filename_unix
+    ounit2
+    base_quickcheck
+    ngrams_tests
+    lib
+  )
+  (preprocess (pps ppx_jane))
+  (deps (file ../src/bin/ngrams.exe) (glob_files_rec ../test/**)))

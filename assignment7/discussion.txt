@@ -1,0 +1,57 @@
+
+-------------------
+DISCUSSION EXERCISE
+-------------------
+
+One problem with monad encodings is the run-time complexity might be greater.
+
+For a string s of length n, calculate the asymptotic complexity of
+  (a) are_balanced_mutable s
+  (b) are_balanced_monadic s
+respectively. Show your work so you can get partial credit.
+
+Write your answer below.
+
+ANSWER:
+
+(a) are_balanced_mutable: O(n)
+
+Analysis:
+- String.fold iterates through each character once: O(n) iterations
+- For each character, the parse function either:
+  * Pushes '(' onto the stack: O(1) using Core.Stack.push
+  * Pops from the stack and compares: O(1) using Core.Stack.pop_exn
+  * Does nothing (for other characters): O(1)
+- After the fold, Stack.is_empty checks if stack is empty: O(1)
+- Total: O(n) * O(1) + O(1) = O(n)
+
+(b) are_balanced_monadic: O(n)
+
+Analysis:
+- String.to_list converts string to list: O(n)
+- list_fold_m processes each character sequentially: O(n) iterations
+- For each character, parse creates a monadic computation that:
+  * For '(': push to stack is O(1) - cons operation (a :: stack)
+  * For ')': pop from stack is O(1) - pattern match and return head
+  * For others: return is O(1)
+- Each bind/return operation constructs a function composition: O(1)
+- When run executes the final composed function, it applies all n operations
+  sequentially, each taking O(1) time
+- Final is_empty check: O(1)
+- Total: O(n) + O(n) * O(1) + O(1) = O(n)
+
+Conclusion:
+Despite the monad encoding creating function compositions and threading state,
+both implementations have the same asymptotic complexity O(n). This is because:
+1. The stack operations (push/pop) use list cons/head which are O(1)
+2. OCaml's persistent data structures don't require copying the entire stack
+3. The monadic overhead is just function composition, not data copying
+4. Each character is processed exactly once in both versions
+
+The monadic version may have a higher constant factor due to function call
+overhead, but the asymptotic complexity remains the same.
+
+
+
+
+

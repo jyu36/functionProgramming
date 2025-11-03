@@ -1,0 +1,37 @@
+# OCaml build artifacts
+_build/
+_coverage/
+*.exe
+*.o
+*.a
+*.cma
+*.cmxa
+*.cmi
+*.cmo
+*.cmx
+*.cmt
+*.cmti
+*.annot
+*.s
+*.o
+*.so
+*.dylib
+*.coverage
+
+# Dune
+*.install
+*.merlin
+
+# Editor files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Test artifacts
+*.cache
+*.log
+
+# Zip files (can be regenerated)
+*.zip
+

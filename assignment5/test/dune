@@ -1,0 +1,9 @@
+(test
+  (name tests)
+  (modules tests)
+  (libraries
+    core
+    ounit2
+    finite_group
+  )
+  (preprocess (pps ppx_jane)))
